@@ -1,0 +1,218 @@
+/*  Student Facing Notes
+
+==== Fixed ====
+- Layout is usually built for only one view
+- Units are usually hard coded and not responsive
+- Cheapest and fastest to get into production
+- Not industry standard
+
+==== Fluid ====
+- Site has no constraints (no max-width)
+- Usually media queries are not used in favor of a layout that is elastic in all devices
+- Not commonly seen anymore, used to be popular
+
+==== Adaptive ====
+- Website adjusts to breakpoint (media queries)
+- Layout may still be hard coded widths
+- Will still see this approach in many sites to this day 
+
+==== Responsive ====
+- Uses both breakpoints and responsive units
+- A blend of all the positive traits of fixed, fluid, and adaptive
+- Industry standard
+
+
+==== Viewport meta tag ====
+- Housed inside the <head> tag
+- Gives us a downsized width compared to the device's resolution
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: 20px;
+}
+
+/* For responsive images */
+img {
+ width: 100%;
+ height: auto;
+}
+
+p {
+  line-height: 1.25;
+  margin: 20px 0;
+}
+
+.container {
+  /* max-width says "Don't get bigger than my value "*/
+  max-width: 900px;
+  
+  /* min-width says "don't get smaller than my value "*/
+  margin: 0 auto;
+}
+
+strong {
+  font-weight: bold;
+  color: red;
+}
+
+header {
+  border-bottom: 1px solid black;
+  margin: 20px 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Header Styles Here */
+header h1 {
+  font-size: 20px;
+}
+
+header nav {
+  margin-left: 62px;
+}
+
+header nav a {
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+header nav .first-anchor {
+  margin-left: 0;
+}
+
+.main-content {
+  display: flex;
+}
+
+.main-content section {
+  margin: 20px 5%;
+  width: 45%;
+}
+
+.main-footer {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px dashed black;
+  padding-top: 20px;
+}
+
+.main-footer nav {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* 
+
+Desktop first engineering 
+- max-width mentality (top down from desktop)
+- media query values must go big number to small number
+
+*/
+
+/* Tablet max width */
+@media(max-width: 800px) {
+  .container {
+    background: gray;
+  }
+  
+  .main-content {
+    flex-direction: column;
+  }
+
+  .main-content section {
+    margin: 20px 5%;
+    width: 90%;
+  }
+}
+
+/* Phone max width */
+@media(max-width: 500px) {
+  .container {
+    background: green;
+  }
+}
+
+
+/* 
+
+Mobile first engineering 
+- min-width mentality (bottom to top starting with phone)
+- media query values must go small number to big number
+
+*/
+
+/* 
+
+
+/* phone styles */
+/* .book-flight-btn-mobile {
+  width: 90%;
+  padding: 20px;
+  margin: 20px 5%;
+  border-radius: 20px;
+  font-size: 18px;
+  border: 1px solid black;
+} */
+
+/* Tablet */
+/* @media(min-width: 500px) {
+  .book-flight-btn-mobile {
+    max-width: 200px;
+    background: pink;
+    color: white;
+  }
+} */
+
+/* Desktop */
+/* @media(min-width: 800px) {
+  .book-flight-btn-mobile {
+    background: black;
+    color: white;
+  }
+} */
+
+
+/* phone styles */
+/* .book-flight-btn {
+  padding: 20px;
+  margin: 20px 5%;
+  border-radius: 20px;
+  font-size: 18px;
+  border: 1px solid black;
+  background: black;
+  color: white;
+} */
+
+/* Tablet */
+/* @media(max-width: 800px) {
+  .book-flight-btn {
+    background: pink;
+    color: white;
+  }
+} */
+
+/* Desktop */
+/* @media(max-width: 500px) {
+  .book-flight-btn {
+    background: white;
+    color: black;
+    width: 90%;
+  }
+} */
+
+
